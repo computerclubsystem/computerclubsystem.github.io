@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+
+<head lang="bg">
+    <title>Computer Club Manager 2 - безплатна програма за компютърни клубове</title>
+
+    <base href="./" />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Computer Club Manager 2 - безплатна програма за компютърни клубове" />
+
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+    <!-- Fix for IE + angular 2 beta 3 -->
+    <script>
+        if (!Object.hasOwnProperty('name')) {
+            Object.defineProperty(Function.prototype, 'name', {
+                get: function() {
+                var matches = this.toString().match(/^\s*function\s*(\S*)\s*\(/);
+                var name = matches && matches.length > 1 ? matches[1] : "";
+                // For better performance only parse once, and then cache the
+                // result through a new accessor for repeated access.
+                Object.defineProperty(this, 'name', {value: name});
+                return name;
+                }
+            });
+        }
+    </script>
+
+    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+    <script src="node_modules/systemjs/dist/system.js"></script>
+    <script src="node_modules/rxjs/bundles/Rx.min.js"></script>
+    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+    <script src="node_modules/angular2/bundles/router.dev.js"></script>
+    <script src="node_modules/angular2/bundles/http.dev.js"></script>
+
+    <script>
+        System.config({
+            packages: {
+                app: {
+                    format: 'register',
+                    defaultExtension: 'js'
+                }
+            }
+        });
+        System.import('app/boot')
+            .then(null, console.error.bind(console));
+    </script>
+</head>
+
+<body>
+    <ccm2-site>
+        <header class="ccm2-header">
+            <div class="ccm2-logo-container">
+                <img alt="Изображение на програмата Computer Club Manager 2" src="assets/img/ccm2-monitor.png" />
+            </div>
+            <div>
+                <h1><a href="http://computerclubsystem.com/ccm2-new/">Computer Club Manager 2</a></h1>
+                <h2>Безплатна програма за компютърни клубове</h2>
+            </div>
+        </header>
+        <noscript>
+            <div class="ccm2-container">
+                <div class="ccm2-navigation">
+                    <nav class="ccm2-navigation-list">
+                        <hr />
+                        <ul>
+                            <li>
+                                <a href="app/home/home.html">Начало</a>
+                            </li>
+                            <li>
+                                <a href="app/info/info.html">Информация</a>
+                            </li>
+                            <li>
+                                <a href="app/download/download.html">Изтегляне</a>
+                            </li>
+                        </ul>
+                        <hr /> Конфигурация:
+                        <ul>
+                            <li>
+                                <a href="app/configuration/initial/initial.html">Първоначална</a>
+                            </li>
+                            <li>
+                                <a href="app/configuration/computers-and-ip-addresses/computers-and-ip-addresses.html">Компютри и IP адреси</a>
+                            </li>
+                            <li>
+                                <a href="app/configuration/prices/prices.html">Цени</a>
+                            </li>
+                            <li>
+                                <a href="app/configuration/users/users.html">Персонал</a>
+                            </li>
+                            <li>
+                                <a href="app/configuration/language-and-font/language-and-font.html">Език и шрифт</a>
+                            </li>
+                            <li>
+                                <a href="app/configuration/customer-cards/customer-cards.html">Клиентски карти</a>
+                            </li>
+                            <li>
+                                <a href="app/configuration/other/other.html">Други</a>
+                            </li>
+                            <li>
+                                <a href="app/configuration/bar/bar.html">Бар</a>
+                            </li>
+                            <li>
+                                <a href="app/configuration/ini-files/ini-files.html">.ini файлове</a>
+                            </li>
+                        </ul>
+                        <hr /> Как се работи:
+                        <ul>
+                            <li>
+                                <a href="app/how-to/start-and-stop/start-and-stop.html">Пускане и спиране</a>
+                            </li>
+                            <li>
+                                <a href="app/how-to/selling-items/selling-items.html">Продажба на артикули</a>
+                            </li>
+                            <li>
+                                <a href="app/how-to/shift-completion/shift-completion.html">Приключване на смяната</a>
+                            </li>
+                        </ul>
+                        <hr />
+                        <ul>
+                            <li>
+                                <a href="app/contacts/contacts.html">Контакти</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </noscript>
+    </ccm2-site>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<header class="ccm2-header">
+    <div class="ccm2-logo-container">
+        <img alt="Изображение на програмата Computer Club Manager 2" src="/assets/img/ccm2-monitor.png" />
+    </div>
+    <div>
+        <h1>Computer Club Manager 2</h1>
+        <h2>Безплатна програма за компютърни клубове</h2>
+    </div>
+</header>
+<div class="ccm2-container">
+    <div class="ccm2-navigation">
+        <nav>
+            <ul class="ccm2-navigation-list">
+                <li>
+                    <a [routerLink]="['Home']">Начало</a>
+                </li>
+                <li>
+                    <a [routerLink]="['Info']">Информация</a>
+                </li>
+                <li>
+                    <a [routerLink]="['Download']">Изтегляне</a>
+                </li>
+                <li>
+                    <a [routerLink]="['Configuration']">Конфигурация</a>
+                </li>
+                <li>
+                    <a [routerLink]="['HowTo']">Как се работи</a>
+                </li>
+                <li>
+                    <a [routerLink]="['Contacts']">Контакти</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="ccm2-content">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+<footer>
+</footer>

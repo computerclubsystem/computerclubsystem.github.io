@@ -1,0 +1,161 @@
+<section>
+    <h3>
+        Настройки в .ini файловете
+    </h3>
+    <p>
+        Някои настройки не се правят от програмата а са в отделни файлове, които трябва да се променят ръчно. Данните в тези файлове
+        са разделени на "секции", които се указват с името на секцията заградена със символите [ и ]. След секцията следват
+        имената на настройките и техните стойности, разделени със символа <span class="ccm2-accent">=</span>. Ето
+        един пример с две секции с имена <span class="ccm2-accent">HTTP Server</span> и <span class="ccm2-accent">Special</span>        със съответните им настройки и техните стойности:
+    </p>
+    <code>
+        <div>[HTTP Server]</div>
+        <div>LocalPort=50210</div>
+        <p>
+        </p>
+        <div>
+            <div>[Special]</div>
+            <div>ClientLanguage=en</div>
+            <div>ClientCardPasswordTimeout=3</div>
+        </div>
+    </code>
+    <p>
+        Ако искате да промените някоя настройка, трябва да отворите съответния .ini файл, да създадете секцията (ако все още не съществува)
+        и да напишете името на настройката и нейната стойност. Всяка промяна на .ini файла изисква рестартиране на програмата
+        сървър за да се приложат новите настройки.
+    </p>
+    <p>
+        .ini файловете обикновено не съществуват когато инсталирате програмата Computer Club Manager 2. Ако искате да ползвате някоя
+        настройка, ще трябва да ги създадете в директорията, където сте сложили ComputerClubManager2.exe.
+    </p>
+    <p>
+        Файла <span class="ccm2-accent">User.ini</span> съдържа повечето от настройките, които не са достъпни от екраните
+        на програмата.
+    </p>
+    <h4 class="ccm2-subheader">User.ini - секция [HTTP Server]</h4>
+    <p>
+        Секцията <span class="ccm2-accent">HTTP Server</span> може да съдържа следните настройки:
+    </p>
+    <ul class="ccm2-functions-list">
+        <li>
+            <span class="ccm2-accent">LocalPort</span> - число. Указва на кой порт да се приемат връзки към сървъра от web
+            browser. По подразбиране е със стойност 80. Стойността трябва да е между 1 и 65535. Ако я смените, този, който
+            ще се свързва със сървъра от web browser, трябва към адреса да добави и порта по следния начин (ако сте задали
+            LocalPort=50210): <span class="ccm2-accent">http://192.168.0.1:50210</span> (IP адреса е примерен).
+        </li>
+    </ul>
+    <h4 class="ccm2-subheader">User.ini - секция [Special]</h4>
+    <ul class="ccm2-functions-list">
+        <li>
+            <span class="ccm2-accent">ClientLanguage</span> - <span class="ccm2-accent">en</span> или <span class="ccm2-accent">bg</span>.
+            Език за клиентската програма. Ако сте направили тази настройка на <span class="ccm2-accent">ClientLanguage=en</span>,
+            езика на екраните на клиентската програма ще е на английски. Всяка друга стойност (или липсата на настройката)
+            се счита за <span class="ccm2-accent">bg</span> и езика на клиентската програма ще е български.
+        </li>
+        <li>
+            <span class="ccm2-accent">HideUnusedPackets</span> - <span class="ccm2-accent">0</span> или <span class="ccm2-accent">1</span>.
+            Дали да се скрият неконфигурираните пакети. Ако сте задали тази настройка на <span class="ccm2-accent">HideUnusedPackets=1</span>,
+            неконфигурираните пакети няма да се появяват в списъка <span class="ccm2-setting-label">Пусни го за</span> в
+            екрана <span class="ccm2-accent">Специални</span>, когато искате да пускате компютър за пакет.
+        </li>
+        <li>
+            <span class="ccm2-accent">ClientCardPasswordTimeOut</span> - число. Колко време да се даде на клиента за написване
+            на паролата на клиентската му карта, когато си пусне компютър. Ако няма такава настройка, времето е 1 минута,
+            но ако сте направили тази настройка например на <span class="ccm2-accent">ClientCardPasswordTimeOut=3</span>,
+            тогава клиента ще има 3 минути за да си напише паролата.
+        </li>
+        <li>
+            <span class="ccm2-accent">Packet1Color до Packet12Color</span> - три числа (всяко от 0 до 255) разделени със
+            запетаи. RGB стойност за цвета на компютрите, пуснати за съответния пакет. Стойностите на числото между
+            <span class="ccm2-accent">Packet</span> и <span class="ccm2-accent">Color</span> в името на настройката е от
+            1 до 12 и показва за кой пакет се отнася. Числото 1 се отнася за
+            <span class="ccm2-accent">Дневен пакет</span>, 2 е за <span class="ccm2-accent">Нощен пакет</span> и така до
+            числото 12, което представлява <span class="ccm2-accent">Ценови пакет 6</span>. Подредбата е същата като пакетите
+            от екрана на менюто <a [routerLink]="['Prices']" href="../prices/prices.html"><span class="ccm2-menu">Настройки</span> <span class="ccm2-menu">Цени и категории</span></a>.
+            Стойността на тези настройки е съставена от три числа, разделени със запетая, като всяко число може да има стойности
+            от 0 до 255, което указва цвета в <span class="ccm2-accent">RGB</span> формат. Например стойност <span class="ccm2-accent">255,0,0</span>            представлява червен цвят а <span class="ccm2-accent">0,255,0</span> - зелен. За да превърнете цвят в RGB стойности,
+            можете да отворите цветовия палет на програмата Paint (или друга програма за обработка на картинки), да изберете
+            цвета и да погледнете "Red (R)", "Green (G)" и "Blue (B)" стойностите му. Можете да зададете стойности на които
+            си искате пакети (или на никой). Пример за това как да се променят цветовете на компютри, пуснати за "Дневен
+            пакет", "Нощен пакет" и "Ценови пакет 1" съответно на жълт, зелен и светло син:
+            <code>
+                <div>[Special]</div>
+                <div>Packet1Color=255,255,0</div>
+                <div>Packet2Color=0,255,0</div>
+                <div>Packet7Color=173,216,230</div>
+            </code>
+        </li>
+        <li>
+            <span class="ccm2-accent">Packet13Color</span> - тази настройка е същата като за <span class="ccm2-accent">Packet1Color</span>            но се отнася за компютрите, пуснати на клиентска карта.
+        </li>
+        <li>
+            <span class="ccm2-accent">Packet14Color и Packet15Color</span> - тези настройки са същите като за <span class="ccm2-accent">Packet1Color</span>            но се отнасят за "Часови пакет екстра" и "Ценови пакет екстра".
+        </li>
+        <li>
+            <span class="ccm2-accent">CustomDataDir</span> - текст. Тази настройка представлява път до директория, в която
+            програмата сървър да си създаде и от където да използва файловете си. Използвайте тази настройка само ако все
+            още не сте си направили настройките на програмата. Ако го направите след това, всички настройки и данни ще се
+            загубят и ще започнете "от начало" (по подразбиране, програмата сървър създава файловете си в C:\Windows\system32).
+            Пример как да накарате програмата сървър да създаде и използва файловете си от директория D:\CCM2:
+            <code>
+                <div>[Special]</div>
+                <div>CustomDataDir=D:\CCM2</div>
+            </code>
+        </li>
+    </ul>
+    <h4 class="ccm2-subheader">User.ini - секция [GeneralView]</h4>
+    <ul class="ccm2-functions-list">
+        <li><span class="ccm2-accent">Enable</span> - <span class="ccm2-accent">0</span> или <span class="ccm2-accent">1</span>            - дали да се покаже ново бутонче горе вдясно на основния екран, което изглежда така -
+            <div><img class="ccm2-screenshot" style="max-width: 208px;" src="/assets/img/screenshots/configuration/ini-files/general-view-button.png"
+                /></div> - с което можете да гледате компютрите с избрана от вас подредба. Ако тази настройка е <span class="ccm2-accent">1</span>            и натиснете бутона горе вдясно на основния прозорец, ще се появи екран, от който ще можете да завлачвате компютрите
+            и да ги подреждате по ваше желание. Чрез натискане на десния бутон върху картинката на компютрите ще се показва
+            менюто за компютъра, от където ще можете да го пускате и спирате. Също така чрез натискане точно над картинката
+            на компютъра, ще можете да задавате лимит (ако е пуснат). Чрез този екран бихте могли да си наредите компютрите
+            така, както се намират в залата, за да можете по-лесно визуално да се ориентирате кой е зает и кой е свободен.
+            Ето как изглежда този екран след като няколко компютъра са били преместени за да се пресъздаде тяхната реална
+            позиция в залата:
+            <div><img class="ccm2-screenshot" style="max-width: 800px;" src="/assets/img/screenshots/configuration/ini-files/general-view-screen.png"
+                /></div>
+        </li>
+    </ul>
+    <h4 class="ccm2-subheader">User.ini - секция [WakeOnLan]</h4>
+    <ul class="ccm2-functions-list">
+        <li>
+            <span class="ccm2-accent">Enabled</span> - <span class="ccm2-accent">0</span> или <span class="ccm2-accent">1</span>.
+            Дали пускането на компютър от програмата сървър да го "събужда". При стойност <span class="ccm2-accent">1</span>            тази функция ще е пусната. За целта и компютрите трябва да са настроени да могат да се пускат чрез WakeOnLan
+            (вижте как може да стане това според указанията за вашите BIOS-и).
+        </li>
+        <li>
+            <span class="ccm2-accent">Port</span> - число. По подразбиране има стойност 7 но ако по някаква причина компютрите
+            ви приемат "WakeOnLan" сигнала на друг порт, можете да го зададете от тук.
+        </li>
+        <li>
+            <span class="ccm2-accent">PC?.Enabled</span> - <span class="ccm2-accent">0</span> или <span class="ccm2-accent">1</span>            - дали за този компютър WakeOnLan да е позволено. Ако зададете стойност 1, този компютър ще се пуска когато го
+            стартирате от програмата сървър. На мястото на символа <span class="ccm2-accent">?</span> трябва да се напише
+            номера на компютъра.
+        </li>
+        <li>
+            <span class="ccm2-accent">PC?.AutomaticallyGetMAC</span> - <span class="ccm2-accent">0</span> или <span class="ccm2-accent">1</span>            - дали програмата сървър автоматично да разпознае MAC адреса на съответния компютър. MAC адреса е нужен за да
+            може WakeOnLan да работи. Задайте стойност 1 за да не се налага да пишете MAC адресите на компютрите ръчно (редове
+            със съдържание PC?.MAC=... ще се създадат автоматично за тези компютри, които имат стойност 1 за тази настройка).
+        </li>
+        <li>
+            <span class="ccm2-accent">PC?.MAC</span> - MAC адрес. Не използвайте тази настройка ако сте задали PC?.AutomaticallyGetMAC=1
+            (защото тогава PC?.MAC ще се създаде автоматично). Ако сте задали MAC адреса да не се взема автоматично с PC?.AutomaticallyGetMAC=0,
+            тук трябва да напишете MAC адреса на съответния компютър. Пример за MAC адрес: <code>00-05-1C-09-D7-37</code>            или
+            <code>00051C09D737</code>. Ето един пример как можете да използвате функцията WakeOnLan за първите 3 компютъра
+            като на втория не му се взема MAC адреса автоматично а е написан ръчно:
+            <code>
+                <div>[WakeOnLan]</div>
+                <div>Enabled=1</div>
+                <div>PC1.Enabled=1</div>
+                <div>PC1.AutomaticallyGetMAC=1</div>
+                <div>PC2.Enabled=1</div>
+                <div>PC2.AutomaticallyGetMAC=0</div>
+                <div>PC2.MAC=00-05-1C-09-D7-37</div>
+                <div>PC3.Enabled=1</div>
+                <div>PC3.AutomaticallyGetMAC=1</div>
+            </code>
+        </li>
+    </ul>
+</section>
